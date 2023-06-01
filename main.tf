@@ -35,7 +35,7 @@ resource "aws_security_group" "blog" {
     Terraform = "true"
   }
   
-  vpc_id = data.aws_vpc_default.id
+  vpc_id = data.aws_vpc.default.id
 }
 
 resource "aws_security_group_rule" "blog_http_in" {
