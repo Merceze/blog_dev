@@ -23,8 +23,6 @@ module "blog_vpc" {
   azs             = ["us-west-2a","us-west-2b","us-west-2c"]
   public_subnets  = ["10.10.101.0/24", "10.10.102.0/24", "10.10.103.0/24"]
   
-  enable_nat_gateway = true
-
   tags = {
     Terraform = "true"
     Environment = "dev"
