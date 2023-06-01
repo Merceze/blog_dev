@@ -36,14 +36,12 @@ module "blog_security_group" {
   
   vpc_id = data.aws_vpc.default.id
   
-  ingress_rules        = ["http_80_tcp,https_443_tcp"]
+  ingress_rules        = ["http-80-tcp,https-443-tcp"]
   ingress_cidr_blocks  = ["0.0.0.0/0"]
   
   engress_rules        = ["all-all"]
   engress_cidr_blocks  = ["0.0.0.0/0"]
-  
-  http-80-tcp   = [80, 80, "tcp", "HTTP"]
-  https-443-tcp  = [443, 443, "tcp", "HTTPS"]
+
 }
 
 
