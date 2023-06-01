@@ -19,9 +19,8 @@ data "aws_vpc" "default" {
 }
 
 resource "aws_instance" "blog" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
-
+  ami                    = data.aws_ami.app_ami.id
+  instance_type          = var.instance_type
   vpc_group_security_ids = [aws_security_group_blog_id]
   
   tags = {
@@ -32,7 +31,10 @@ resource "aws_instance" "blog" {
 resource "aws_security_group" "blog" {
   name        = "blog"
   description = "Allow HTTP and HTTPS, and everything"
-
+  tags = {
+    Terraform = "true"
+  }
+  
   vpc_id = data.aws_vpc_default.id
 }
 
