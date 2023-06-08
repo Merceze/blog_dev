@@ -11,7 +11,7 @@ data "aws_ami" "app_ami" {
     values = ["hvm"]
   }
 
-  owners = ["var.ami_filter_owner"] # Bitnami
+  owners = [var.ami_filter_owner]
 }
 
 module "blog_autoscaling" {
